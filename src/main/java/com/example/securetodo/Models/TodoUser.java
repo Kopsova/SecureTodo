@@ -18,6 +18,14 @@ public class TodoUser {
         return id;
     }
 
+    public TodoUser() {
+    }
+
+    public TodoUser(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
