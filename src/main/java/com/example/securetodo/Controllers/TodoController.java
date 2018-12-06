@@ -15,7 +15,12 @@ public class TodoController {
     @Autowired
     TodoRepository repo;
 
-    @GetMapping({"/list", "/"})
+    @GetMapping("/")
+      public String index()  {
+        return"index";
+    }
+
+    @GetMapping({"/list"})
     public String list(Model model, @RequestParam(value = "isActive", required = false) boolean active ) {
         List<ToDo> todos =(repo.findAll());
         if (active) {
