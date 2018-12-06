@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+        @import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto');
+        @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+    </style>
+    <title>Todo list #</title>
+    <!--link  th:href="@{/bootstrap.min.css}" rel="stylesheet" /-->
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
+</head>
+
+<body>
+<h3 th:text="'TODOS FOR TODAY:'" class="text-center"></h3>
+<div class="my-actions">
+    <a th:href="'/todo/add'" >
+        <button type="button" class="btn btn-warning btn-warning-bordered center-block">Add new todo</button></a></div>
+<table class="table table-inverse table-hover my-table">
+    <tr>
+        <th th:text="'ID'"></th>
+        <th th:text="'ACTION'"></th>
+        <th th:text="'DONE'"></th>
+        <th th:text="'URGENT'"></th>
+        <th th:text="'DELETE'"></th>
+        <th th:text="EDIT"></th>
+    </tr>
+    <tr th:each="todo : ${todos}">
+        <td th:text="${todo.getId()}">
+        </td>
+        <td th:text="${todo.getTitle()}" class="font-italic">
+        </td>
+        <td>
+            <span th:class="${todo.isDone()} ? 'glyphicon glyphicon glyphicon-ok' : 'glyphicon glyphicon glyphicon-remove'"></span>
+        </td>
+        <td>
+            <span th:class="${todo.isUrgent()} ? 'glyphicon glyphicon glyphicon-ok' : 'glyphicon glyphicon glyphicon-remove'"></span>
+        </td>
+        <td>
+            <a th:href="'/todo/'+${todo.getId()}+'/delete'">delete</a>
+        </td>
+        <td>
+            <a th:href="'/todo/'+${todo.getId()}+'/edit'">edit</a>
+        </td>
+
+    </tr>
+</table>
+<script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+</body>
+</html>
