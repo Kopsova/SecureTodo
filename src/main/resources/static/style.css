@@ -1,0 +1,55 @@
+body {
+    background-color: #202326;
+}
+
+table {
+    border-collapse: collapse;
+    border-style: hidden;
+    margin: 50px;
+
+}
+.my-table{
+    font-family:'Permanent Marker', cursive;
+    color: white;
+    background-color: #202326;
+    text-align: left;
+    overflow: hidden;
+    width: 80%;
+    margin: 0 auto;
+    display: table;
+    padding: 0 0 8em 0;
+}
+.my-table tbody tr td {
+    padding: 15px;
+    font-size: medium;
+}
+table.table-hover tr:hover {
+    background-color: #fbf038;
+    color: black;
+
+}
+.my-actions{
+    text-align: center;
+    margin: 20px  0 40px;
+}
+button{
+    position: center;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-weight: 700;
+}
+.center-block{
+    float: none;
+    position: center;
+}
+a{
+    display: block;
+}
+h3{
+    font-family:"Permanent Marker";
+    color: #ff3e7a;
+    margin-top: 60px;
+}
+th{
+    font-family:'Roboto', sans-serif;
+}

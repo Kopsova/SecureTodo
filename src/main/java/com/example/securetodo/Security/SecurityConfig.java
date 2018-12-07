@@ -37,31 +37,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         authProvider.setPasswordEncoder(encoder());
         return authProvider;
     }
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication()
-//                .withUser("user").password(encoder().encode("heslo")).roles("ADMIN");
-//    }
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
-            //    .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-           //     .and()
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/todo/**", "/list").authenticated()
-              //  .antMatchers("/list").authenticated()
-               // .anyRequest().authenticated()
-
                 .and()
                 .formLogin().and()
                 .httpBasic()
                 .and()
                 .logout();
 
-   //    http.addFilterAfter(new AuthenticationFilter(tokenService), BasicAuthenticationFilter.class);
+      http.addFilterAfter(new AuthenticationFilter(tokenService), BasicAuthenticationFilter.class);
     }
 
     @Bean
