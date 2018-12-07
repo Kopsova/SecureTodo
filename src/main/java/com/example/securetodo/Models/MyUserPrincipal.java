@@ -1,11 +1,14 @@
 package com.example.securetodo.Models;
 
+import com.example.securetodo.Repositories.TodoUserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
 public class MyUserPrincipal implements UserDetails {
+
     private TodoUser todoUser;
 
     public MyUserPrincipal(TodoUser todoUser) {
@@ -19,32 +22,32 @@ public class MyUserPrincipal implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return todoUser.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return todoUser.getUsername();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
     //...
 }
